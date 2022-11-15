@@ -62,13 +62,20 @@ def predict():
             else:
                 genus = "What is that"
 
+            plant = {
+                "genus": genus,
+                "treatment": treatment
+            }
+
             return jsonify(
-                genus=genus,
-                treatment=treatment
+                plant=plant,
+                error=False,
+                message="success"
             )
         else:
             return jsonify(
-                error="Unable to read the file or no file uploaded"
+                error=True,
+                message="Unable to read the file or no file uploaded"
             )
 
 
