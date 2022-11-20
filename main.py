@@ -80,14 +80,14 @@ def predict():
 
             plant = {
                 "genus": genus,
-                "treatment": treatment
+                "treatment": treatment,
+                "link1": link1,
+                "link2": link2,
+                "link3": link3
             }
 
             return jsonify(
                 plant=plant,
-                link1=link1,
-                link2=link2,
-                link3=link3,
                 error=False,
                 message="success"
             )
