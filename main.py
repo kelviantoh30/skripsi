@@ -48,17 +48,33 @@ def predict():
             classes_x = random.randint(0, 4)
             genus = "Not found"
             treatment = "Lorem ipsum"
+            link1, link2, link3 = "", "", ""
 
             if classes_x == 0:
                 genus = "Cattelya"
+                link1 = "https://cdn.pixabay.com/photo/2017/11/03/08/54/orchid-2913755__480.jpg"
+                link2 = "https://media.istockphoto.com/id/639004662/id/foto/anggrek-milik-genus-cattleya.jpg?b=1&s=170667a&w=0&k=20&c=vgKOyFogvC29psB9RkkguaVWGaqKg_l-XBhn6J8s4Qc="
+                link3 = "https://cdn.pixabay.com/photo/2018/04/01/17/46/flower-3281568__480.jpg"
             elif classes_x == 1:
                 genus = "Dendrobium"
+                link1 = "https://cdn.pixabay.com/photo/2022/10/31/22/37/dendrobium-7560863__480.jpg"
+                link2 = "https://cdn.pixabay.com/photo/2021/08/21/13/35/dendrobium-6562799__480.jpg"
+                link3 = "https://cdn.pixabay.com/photo/2022/09/15/15/10/flower-7456633__480.jpg"
             elif classes_x == 2:
                 genus = "Oncidium"
+                link1 = "https://cdn.pixabay.com/photo/2021/12/26/05/23/flower-6894253__480.jpg"
+                link2 = "https://cdn.pixabay.com/photo/2019/11/05/17/09/orchid-4603975__480.jpg"
+                link3 = "https://thumbs.dreamstime.com/b/purple-green-maroon-oncidium-orchid-bloom-greenhouse-87482282.jpg"
             elif classes_x == 3:
-                genus == "Phalaenopsis"
+                genus = "Phalaenopsis"
+                link1 = "https://cdn.pixabay.com/photo/2020/02/24/13/26/orchid-4876192__480.jpg"
+                link2 = "https://cdn.pixabay.com/photo/2013/05/05/09/36/orchid-108914__480.jpg"
+                link3 = "https://cdn.pixabay.com/photo/2018/05/29/05/54/orchid-3437984__480.jpg"
             elif classes_x == 4:
                 genus = "Vanda"
+                link1 = "https://cdn.pixabay.com/photo/2012/07/27/13/27/blue-vanda-orchid-53084__480.jpg"
+                link2 = "https://cdn.pixabay.com/photo/2021/12/26/05/25/flower-6894255__480.jpg"
+                link3 = "https://cdn.pixabay.com/photo/2018/12/15/06/42/orchid-3876403__480.jpg"
             else:
                 genus = "What is that"
 
@@ -69,6 +85,9 @@ def predict():
 
             return jsonify(
                 plant=plant,
+                link1=link1,
+                link2=link2,
+                link3=link3,
                 error=False,
                 message="success"
             )
