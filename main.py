@@ -7,7 +7,10 @@ import os
 from tensorflow.keras.preprocessing import image
 import random
 
+
 app = Flask(__name__)
+
+model = load_model('Model_Anggrek_VGG19.h5')
 
 
 @app.route('/')
@@ -39,13 +42,18 @@ def predict():
     if request.method == 'POST':
         file = request.files.get('file', None)
         if file and allowed_file(file.filename):  # Checking file format
-            # filename = file.filename
-            # file_path = os.path.join('static/images', filename)
-            # file.save(file_path)
-            # img = read_image(file_path)  # prepressing method
-            # class_prediction = model.predict(img)
-            # classes_x = np.argmax(class_prediction, axis=1)
-            classes_x = random.randint(0, 4)
+            filename = file.filename
+            file_path = os.path.join('static/images', filename)
+            file.save(file_path)
+
+            img = read_image(file_path)
+            class_prediction = model.predict(img)
+            classes_x = np.argmax(class_prediction, axis=1)
+
+            # delete file to save storage
+            os.remove(file_path)
+
+            # classes_x = random.randint(0, 4)
             genus = "Not found"
             treatment = "Lorem ipsum"
             link1, link2, link3 = "", "", ""
